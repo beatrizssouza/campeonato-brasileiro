@@ -7,6 +7,18 @@
 <script>
 export default {
   name: "ClubesLista",
+  data() {
+    return {
+      clubesLista: [],
+    };
+  },
+  created() {
+    fetch("https://hackthon-decola.firebaseio.com/clubes-lista.json")
+      .then((res) => res.json())
+      .then((json) => {
+        this.clubesLista = json;
+      });
+  },
 };
 </script>
 
